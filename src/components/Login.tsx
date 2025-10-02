@@ -30,10 +30,10 @@ export const Login: React.FC = () => {
   const isSubmitting = loading || authLoading;
 
   return (
-    <div 
+    <div
       className="min-h-screen flex items-center justify-center p-4 relative"
       style={{
-        backgroundImage: `url('/musti9-min.jpg')`,
+        backgroundImage: `url('/musti9-min copy.jpg')`,
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         backgroundRepeat: 'no-repeat'
