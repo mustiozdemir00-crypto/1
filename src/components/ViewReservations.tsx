@@ -258,42 +258,42 @@ export const ViewReservations: React.FC = () => {
                           </button>
                         )}
                         <div className="flex-1">
-                      {editingReservation === reservation.id ? (
-                        <div className="space-y-2">
-                          <input
-                            type="text"
-                            value={editFormData.firstName}
-                            onChange={(e) => setEditFormData(prev => ({ ...prev, firstName: e.target.value }))}
-                            className="w-full px-2 py-1 bg-white border border-gray-300 text-gray-900 rounded text-sm"
-                            placeholder="First Name"
-                          />
-                          <input
-                            type="text"
-                            value={editFormData.lastName}
-                            onChange={(e) => setEditFormData(prev => ({ ...prev, lastName: e.target.value }))}
-                            className="w-full px-2 py-1 bg-white border border-gray-300 text-gray-900 rounded text-sm"
-                            placeholder="Last Name"
-                          />
-                          <input
-                            type="tel"
-                            value={editFormData.phone}
-                            onChange={(e) => setEditFormData(prev => ({ ...prev, phone: e.target.value }))}
-                            className="w-full px-2 py-1 bg-white border border-gray-300 text-gray-900 rounded text-sm"
-                            placeholder="Phone"
-                          />
-                        </div>
-                      ) : (
-                        <div>
-                          <div className="font-medium text-gray-900">
-                            {reservation.firstName} {reservation.lastName}
-                          </div>
-                          <div className="text-sm text-gray-400">{reservation.phone}</div>
-                          <div className="text-xs text-gray-600 flex items-center mt-1">
-                            <Calendar size={10} className="mr-1" />
-                            Created: {new Date(reservation.createdAt).toLocaleDateString()} at {new Date(reservation.createdAt).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
-                          </div>
-                        </div>
-                      )}
+                          {editingReservation === reservation.id ? (
+                            <div className="space-y-2">
+                              <input
+                                type="text"
+                                value={editFormData.firstName}
+                                onChange={(e) => setEditFormData(prev => ({ ...prev, firstName: e.target.value }))}
+                                className="w-full px-2 py-1 bg-white border border-gray-300 text-gray-900 rounded text-sm"
+                                placeholder="First Name"
+                              />
+                              <input
+                                type="text"
+                                value={editFormData.lastName}
+                                onChange={(e) => setEditFormData(prev => ({ ...prev, lastName: e.target.value }))}
+                                className="w-full px-2 py-1 bg-white border border-gray-300 text-gray-900 rounded text-sm"
+                                placeholder="Last Name"
+                              />
+                              <input
+                                type="tel"
+                                value={editFormData.phone}
+                                onChange={(e) => setEditFormData(prev => ({ ...prev, phone: e.target.value }))}
+                                className="w-full px-2 py-1 bg-white border border-gray-300 text-gray-900 rounded text-sm"
+                                placeholder="Phone"
+                              />
+                            </div>
+                          ) : (
+                            <div>
+                              <div className="font-medium text-gray-900">
+                                {reservation.firstName} {reservation.lastName}
+                              </div>
+                              <div className="text-sm text-gray-400">{reservation.phone}</div>
+                              <div className="text-xs text-gray-600 flex items-center mt-1">
+                                <Calendar size={10} className="mr-1" />
+                                Created: {new Date(reservation.createdAt).toLocaleDateString()} at {new Date(reservation.createdAt).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
+                              </div>
+                            </div>
+                          )}
                         </div>
                       </div>
                     </td>
@@ -349,7 +349,6 @@ export const ViewReservations: React.FC = () => {
                             className="w-full px-2 py-1 bg-white border border-gray-300 text-gray-900 rounded text-sm"
                             placeholder="Total Price"
                           />
-                          <label className="block text-xs text-gray-400">Deposit (€)</label>
                           <label className="block text-xs text-gray-600">Deposit (€)</label>
                           <input
                             type="number"
@@ -359,7 +358,6 @@ export const ViewReservations: React.FC = () => {
                             className="w-full px-2 py-1 bg-white border border-gray-300 text-gray-900 rounded text-sm"
                             placeholder="Deposit"
                           />
-                          <div className="text-xs text-gray-400">
                           <div className="text-xs text-gray-600">
                             Remaining: €{editFormData.totalPrice && editFormData.depositPaid 
                               ? (parseFloat(editFormData.totalPrice) - parseFloat(editFormData.depositPaid)).toFixed(2)
