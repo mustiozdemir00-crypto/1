@@ -115,30 +115,30 @@ export const DateSelector: React.FC<DateSelectorProps> = ({
       <button
         type="button"
         onClick={() => setIsOpen(!isOpen)}
-        className={`w-full px-4 py-3 bg-gray-700 border border-gray-600 text-white rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-orange-500 transition-colors text-left flex items-center justify-between ${className}`}
+        className={`w-full px-4 py-3 bg-white border border-gray-300 text-gray-900 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-red-500 transition-colors text-left flex items-center justify-between ${className}`}
       >
-        <span className={selectedDate ? 'text-white' : 'text-gray-400'}>
+        <span className={selectedDate ? 'text-gray-900' : 'text-gray-500'}>
           {formatDisplayDate(selectedDate)}
         </span>
-        <Calendar className="w-5 h-5 text-gray-400" />
+        <Calendar className="w-5 h-5 text-gray-500" />
       </button>
 
       {isOpen && (
-        <div className="absolute top-full left-0 right-0 mt-2 bg-gray-800 border border-orange-900 rounded-lg shadow-2xl z-50 p-4">
+        <div className="absolute top-full left-0 right-0 mt-2 bg-white border border-gray-200 rounded-lg shadow-2xl z-50 p-4">
           {/* Month Navigation */}
           <div className="flex items-center justify-between mb-4">
             <button
               type="button"
               onClick={() => navigateMonth('prev')}
-              className="p-2 hover:bg-gray-700 rounded-lg transition-colors text-gray-300 hover:text-white"
+              className="p-2 hover:bg-gray-100 rounded-lg transition-colors text-gray-600 hover:text-gray-900"
             >
               <ChevronLeft size={20} />
             </button>
-            <h3 className="text-lg font-semibold text-white">{monthYear}</h3>
+            <h3 className="text-lg font-semibold text-gray-900">{monthYear}</h3>
             <button
               type="button"
               onClick={() => navigateMonth('next')}
-              className="p-2 hover:bg-gray-700 rounded-lg transition-colors text-gray-300 hover:text-white"
+              className="p-2 hover:bg-gray-100 rounded-lg transition-colors text-gray-600 hover:text-gray-900"
             >
               <ChevronRight size={20} />
             </button>
@@ -147,7 +147,7 @@ export const DateSelector: React.FC<DateSelectorProps> = ({
           {/* Days of Week Header */}
           <div className="grid grid-cols-7 gap-1 mb-2">
             {['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'].map(day => (
-              <div key={day} className="text-center text-sm font-medium text-gray-400 py-2">
+              <div key={day} className="text-center text-sm font-medium text-gray-600 py-2">
                 {day}
               </div>
             ))}
@@ -172,12 +172,12 @@ export const DateSelector: React.FC<DateSelectorProps> = ({
                   disabled={disabled}
                   className={`h-10 w-10 rounded-lg text-sm font-medium transition-all ${
                     disabled
-                      ? 'text-gray-600 cursor-not-allowed'
+                      ? 'text-gray-400 cursor-not-allowed'
                       : selected
-                      ? 'bg-gradient-to-r from-yellow-600 to-amber-700 text-black font-bold'
+                      ? 'bg-gradient-to-r from-red-600 to-red-700 text-white font-bold'
                       : todayDate
-                      ? 'bg-orange-900/30 text-orange-400 hover:bg-orange-900/50'
-                      : 'text-white hover:bg-gray-700'
+                      ? 'bg-red-50 text-red-600 hover:bg-red-100'
+                      : 'text-gray-900 hover:bg-gray-100'
                   }`}
                 >
                   {date.getDate()}
@@ -187,18 +187,18 @@ export const DateSelector: React.FC<DateSelectorProps> = ({
           </div>
 
           {/* Quick Actions */}
-          <div className="flex justify-between mt-4 pt-4 border-t border-gray-700">
+          <div className="flex justify-between mt-4 pt-4 border-t border-gray-200">
             <button
               type="button"
               onClick={() => handleDateSelect(today)}
-              className="px-4 py-2 text-sm bg-gray-700 text-white rounded-lg hover:bg-gray-600 transition-colors"
+              className="px-4 py-2 text-sm bg-red-600 text-white rounded-lg hover:bg-red-700 transition-colors"
             >
               Today
             </button>
             <button
               type="button"
               onClick={() => setIsOpen(false)}
-              className="px-4 py-2 text-sm text-gray-400 hover:text-white transition-colors"
+              className="px-4 py-2 text-sm text-gray-600 hover:text-gray-900 transition-colors"
             >
               Cancel
             </button>
