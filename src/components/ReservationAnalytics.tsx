@@ -105,14 +105,14 @@ export const ReservationAnalytics: React.FC = () => {
 
   return (
     <div className="max-w-7xl mx-auto">
-      <div className="bg-gray-800 border border-orange-900 rounded-2xl shadow-lg p-8">
+      <div className="bg-black border border-red-900 rounded-2xl shadow-lg p-8">
         <div className="mb-8">
           <h1 className="text-3xl font-bold text-white mb-2 tracking-wide">Reservation Analytics</h1>
           <p className="text-white">Track reservations by creation date</p>
         </div>
 
         {/* Period Selection */}
-        <div className="mb-8 bg-gray-700 border border-orange-800 rounded-lg p-6">
+        <div className="mb-8 bg-gray-900 border border-red-800 rounded-lg p-6">
           <div className="flex flex-wrap gap-4">
             {[
               { key: 'today', label: 'Today' },

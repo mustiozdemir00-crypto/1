@@ -107,7 +107,7 @@ export const StaffManagement: React.FC = () => {
 
   return (
     <div className="max-w-6xl mx-auto">
-      <div className="bg-gray-800 border border-orange-900 rounded-2xl shadow-lg p-8">
+      <div className="bg-black border border-red-900 rounded-2xl shadow-lg p-8">
         <div className="flex justify-between items-center mb-8">
           <div>
             <h1 className="text-3xl font-bold text-white mb-2 tracking-wide">Staff Management</h1>
@@ -123,7 +123,7 @@ export const StaffManagement: React.FC = () => {
         </div>
 
         {showAddForm && (
-          <div className="mb-8 bg-gray-700 border border-orange-800 rounded-lg p-6">
+          <div className="mb-8 bg-gray-900 border border-red-800 rounded-lg p-6">
             <h2 className="text-xl font-semibold mb-4 text-white">
               {editingStaff ? 'Edit Staff Member' : 'Add New Staff Member'}
             </h2>
@@ -138,7 +138,7 @@ export const StaffManagement: React.FC = () => {
                     name="name"
                     value={formData.name}
                     onChange={handleInputChange}
-                    className="w-full px-4 py-3 bg-gray-600 border border-gray-500 text-white rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-orange-500 transition-colors placeholder-gray-400"
+                    className="w-full px-4 py-3 bg-black border border-gray-500 text-white rounded-lg focus:ring-2 focus:ring-red-500 focus:border-red-500 transition-colors placeholder-gray-400"
                     required
                   />
                 </div>
@@ -151,7 +151,7 @@ export const StaffManagement: React.FC = () => {
                     name="username"
                     value={formData.username}
                     onChange={handleInputChange}
-                    className="w-full px-4 py-3 bg-gray-600 border border-gray-500 text-white rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-orange-500 transition-colors placeholder-gray-400"
+                    className="w-full px-4 py-3 bg-black border border-gray-500 text-white rounded-lg focus:ring-2 focus:ring-red-500 focus:border-red-500 transition-colors placeholder-gray-400"
                     required
                   />
                 </div>
@@ -164,7 +164,7 @@ export const StaffManagement: React.FC = () => {
                     name="password"
                     value={formData.password}
                     onChange={handleInputChange}
-                    className="w-full px-4 py-3 bg-gray-600 border border-gray-500 text-white rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-orange-500 transition-colors placeholder-gray-400"
+                    className="w-full px-4 py-3 bg-black border border-gray-500 text-white rounded-lg focus:ring-2 focus:ring-red-500 focus:border-red-500 transition-colors placeholder-gray-400"
                     required
                   />
                 </div>
@@ -176,7 +176,7 @@ export const StaffManagement: React.FC = () => {
                     name="role"
                     value={formData.role}
                     onChange={handleInputChange}
-                    className="w-full px-4 py-3 bg-gray-600 border border-gray-500 text-white rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-orange-500 transition-colors"
+                    className="w-full px-4 py-3 bg-black border border-gray-500 text-white rounded-lg focus:ring-2 focus:ring-red-500 focus:border-red-500 transition-colors"
                   >
                     <option value="staff">Staff</option>
                     <option value="artist">Tattoo Artist</option>
@@ -207,7 +207,7 @@ export const StaffManagement: React.FC = () => {
         <div className="overflow-x-auto">
           <table className="w-full">
             <thead>
-              <tr className="border-b border-orange-900">
+              <tr className="border-b border-red-900">
                 <th className="text-left py-4 px-4 font-semibold text-white">Name</th>
                 <th className="text-left py-4 px-4 font-semibold text-white">Username</th>
                 <th className="text-left py-4 px-4 font-semibold text-white">Role</th>

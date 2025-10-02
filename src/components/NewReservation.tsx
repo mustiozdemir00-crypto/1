@@ -136,7 +136,7 @@ export const NewReservation: React.FC<NewReservationProps> = ({ onReservationCre
 
   return (
     <div className="max-w-4xl mx-auto">
-      <div className="bg-gray-800 border border-orange-900 rounded-2xl shadow-lg p-8">
+      <div className="bg-black border border-red-900 rounded-2xl shadow-lg p-8">
         <div className="mb-8">
           <h1 className="text-3xl font-bold text-white mb-2 tracking-wide">New Reservation</h1>
           <p className="text-white">Create a new appointment booking</p>
@@ -160,7 +160,7 @@ export const NewReservation: React.FC<NewReservationProps> = ({ onReservationCre
                 name="firstName"
                 value={formData.firstName}
                 onChange={handleInputChange}
-                className="w-full px-4 py-3 bg-gray-700 border border-gray-600 text-white rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-orange-500 transition-colors placeholder-gray-400"
+                className="w-full px-4 py-3 bg-gray-900 border border-gray-600 text-white rounded-lg focus:ring-2 focus:ring-red-500 focus:border-red-500 transition-colors placeholder-gray-400"
                 required
               />
             </div>
@@ -175,7 +175,7 @@ export const NewReservation: React.FC<NewReservationProps> = ({ onReservationCre
                 name="lastName"
                 value={formData.lastName}
                 onChange={handleInputChange}
-                className="w-full px-4 py-3 bg-gray-700 border border-gray-600 text-white rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-orange-500 transition-colors placeholder-gray-400"
+                className="w-full px-4 py-3 bg-gray-900 border border-gray-600 text-white rounded-lg focus:ring-2 focus:ring-red-500 focus:border-red-500 transition-colors placeholder-gray-400"
                 required
               />
             </div>
@@ -190,7 +190,7 @@ export const NewReservation: React.FC<NewReservationProps> = ({ onReservationCre
                 name="phone"
                 value={formData.phone}
                 onChange={handleInputChange}
-                className="w-full px-4 py-3 bg-gray-700 border border-gray-600 text-white rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-orange-500 transition-colors placeholder-gray-400"
+                className="w-full px-4 py-3 bg-gray-900 border border-gray-600 text-white rounded-lg focus:ring-2 focus:ring-red-500 focus:border-red-500 transition-colors placeholder-gray-400"
                 required
               />
             </div>
@@ -228,7 +228,7 @@ export const NewReservation: React.FC<NewReservationProps> = ({ onReservationCre
                 name="artistId"
                 value={formData.artistId}
                 onChange={handleInputChange}
-                className="w-full px-4 py-3 bg-gray-700 border border-gray-600 text-white rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-orange-500 transition-colors"
+                className="w-full px-4 py-3 bg-gray-900 border border-gray-600 text-white rounded-lg focus:ring-2 focus:ring-red-500 focus:border-red-500 transition-colors"
               >
                 <option value="">Select an artist (optional)</option>
                 {artists.map(artist => (
@@ -248,7 +248,7 @@ export const NewReservation: React.FC<NewReservationProps> = ({ onReservationCre
                 name="totalPrice"
                 value={formData.totalPrice}
                 onChange={handleInputChange}
-                className="w-full px-4 py-3 bg-gray-700 border border-gray-600 text-white rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-orange-500 transition-colors placeholder-gray-400"
+                className="w-full px-4 py-3 bg-gray-900 border border-gray-600 text-white rounded-lg focus:ring-2 focus:ring-red-500 focus:border-red-500 transition-colors placeholder-gray-400"
                 required
               />
             </div>
@@ -264,7 +264,7 @@ export const NewReservation: React.FC<NewReservationProps> = ({ onReservationCre
                 name="depositPaid"
                 value={formData.depositPaid}
                 onChange={handleInputChange}
-                className="w-full px-4 py-3 bg-gray-700 border border-gray-600 text-white rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-orange-500 transition-colors placeholder-gray-400"
+                className="w-full px-4 py-3 bg-gray-900 border border-gray-600 text-white rounded-lg focus:ring-2 focus:ring-red-500 focus:border-red-500 transition-colors placeholder-gray-400"
                 required
               />
             </div>
@@ -293,7 +293,7 @@ export const NewReservation: React.FC<NewReservationProps> = ({ onReservationCre
               value={formData.notes}
               onChange={handleInputChange}
               rows={3}
-              className="w-full px-4 py-3 bg-gray-700 border border-gray-600 text-white rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-orange-500 transition-colors placeholder-gray-400"
+              className="w-full px-4 py-3 bg-gray-900 border border-gray-600 text-white rounded-lg focus:ring-2 focus:ring-red-500 focus:border-red-500 transition-colors placeholder-gray-400"
               placeholder="Add any additional notes..."
             />
           </div>
@@ -303,7 +303,7 @@ export const NewReservation: React.FC<NewReservationProps> = ({ onReservationCre
               <Upload className="inline w-4 h-4 mr-2" />
               Upload Tattoo Designs
             </label>
-            <div className="border-2 border-dashed border-orange-700 rounded-lg p-6 text-center bg-gray-700/30">
+            <div className="border-2 border-dashed border-red-700 rounded-lg p-6 text-center bg-gray-900/30">
               <input
                 type="file"
                 multiple
