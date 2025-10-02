@@ -50,18 +50,12 @@ export const Navigation: React.FC<NavigationProps> = ({ activeTab, setActiveTab 
   return (
     <div className="fixed left-0 top-0 h-full w-64 bg-white shadow-lg border-r border-gray-200">
       <div className="p-6 border-b border-gray-200">
-        <div className="flex items-center space-x-3">
-          <div className="w-12 h-12 rounded-lg flex items-center justify-center">
-            <img 
-              src="/mustimus.png"
-              alt="Krampus Tattoo Logo" 
-              className="w-12 h-12"
-            />
-          </div>
-          <div>
-            <h2 className="text-xl font-bold text-gray-900 tracking-wide">Krampus Tattoo</h2>
-            <p className="text-sm text-gray-600">Management Portal</p>
-          </div>
+        <div className="flex justify-center">
+          <img 
+            src="/mustimus.png"
+            alt="Krampus Tattoo Logo" 
+            className="w-32 h-32"
+          />
         </div>
       </div>
 
