@@ -6,6 +6,7 @@ import { ViewReservations } from './ViewReservations';
 import { StaffManagement } from './StaffManagement';
 import { Economics } from './Economics';
 import { ReservationAnalytics } from './ReservationAnalytics';
+import { EmailViewer } from './EmailViewer';
 
 export const Dashboard: React.FC = () => {
   const [activeTab, setActiveTab] = useState('reservations');
@@ -48,6 +49,8 @@ export const Dashboard: React.FC = () => {
         return <StaffManagement />;
       case 'economics':
         return <Economics />;
+      case 'emails':
+        return <EmailViewer />;
       default:
         return <ViewReservations />;
     }

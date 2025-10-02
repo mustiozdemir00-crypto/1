@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { useAuth } from '../context/AuthContext';
-import { Calendar, Users, Settings, LogOut, Plus, Scissors, DollarSign, TrendingUp } from 'lucide-react';
+import { supabase } from '../lib/supabase';
+import { Calendar, Users, Settings, LogOut, Plus, Scissors, DollarSign, TrendingUp, Mail } from 'lucide-react';
 
 interface NavigationProps {
   activeTab: string;
@@ -9,6 +10,7 @@ interface NavigationProps {
 
 export const Navigation: React.FC<NavigationProps> = ({ activeTab, setActiveTab }) => {
   const { user, logout } = useAuth();
+  const [unreadCount, setUnreadCount] = useState(0);
 
   const navItems = [
     {
@@ -40,11 +42,57 @@ export const Navigation: React.FC<NavigationProps> = ({ activeTab, setActiveTab 
       label: 'Economics',
       icon: DollarSign,
       permission: 'economics'
+    },
+    {
+      id: 'emails',
+      label: 'Company Mail',
+      icon: Mail,
+      permission: 'emails'
     }
   ];
 
   const hasPermission = (permission: string) => {
     return user?.permissions.includes(permission) || user?.role === 'admin';
+  };
+
+  useEffect(() => {
+    if (hasPermission('emails')) {
+      fetchUnreadCount();
+
+      const emailsSubscription = supabase
+        .channel('unread-emails')
+        .on(
+          'postgres_changes',
+          {
+            event: '*',
+            schema: 'public',
+            table: 'emails'
+          },
+          () => {
+            fetchUnreadCount();
+          }
+        )
+        .subscribe();
+
+      return () => {
+        emailsSubscription.unsubscribe();
+      };
+    }
+  }, [user]);
+
+  const fetchUnreadCount = async () => {
+    try {
+      const { count, error } = await supabase
+        .from('emails')
+        .select('*', { count: 'exact', head: true })
+        .eq('is_read', false)
+        .eq('is_archived', false);
+
+      if (error) throw error;
+      setUnreadCount(count || 0);
+    } catch (error) {
+      console.error('Error fetching unread count:', error);
+    }
   };
 
   return (
@@ -69,7 +117,7 @@ export const Navigation: React.FC<NavigationProps> = ({ activeTab, setActiveTab 
               <button
                 key={item.id}
                 onClick={() => setActiveTab(item.id)}
-                className={`w-full flex items-center space-x-3 px-4 py-3 rounded-lg transition-all ${
+                className={`w-full flex items-center space-x-3 px-4 py-3 rounded-lg transition-all relative ${
                   activeTab === item.id
                     ? 'bg-red-100 text-red-700 border border-red-300 shadow-sm'
                     : 'text-gray-600 hover:bg-white hover:text-red-600 hover:shadow-sm'
@@ -77,6 +125,11 @@ export const Navigation: React.FC<NavigationProps> = ({ activeTab, setActiveTab 
               >
                 <Icon size={20} />
                 <span>{item.label}</span>
+                {item.id === 'emails' && unreadCount > 0 && (
+                  <span className="absolute right-3 top-1/2 transform -translate-y-1/2 bg-red-600 text-white text-xs font-bold rounded-full h-5 w-5 flex items-center justify-center">
+                    {unreadCount > 9 ? '9+' : unreadCount}
+                  </span>
+                )}
               </button>
             );
           })}
