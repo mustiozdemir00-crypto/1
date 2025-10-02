@@ -218,7 +218,6 @@ export const ViewReservations: React.FC = () => {
         <div className="overflow-x-auto">
           <table className="w-full">
             <thead>
-              <tr className="border-b border-orange-900">
               <tr className="border-b border-red-900">
                 <th className="text-left py-4 px-4 font-semibold text-white">Reservation #</th>
                 <th className="text-left py-4 px-4 font-semibold text-white">Client</th>

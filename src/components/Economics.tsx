@@ -222,13 +222,12 @@ export const Economics: React.FC = () => {
           </div>
 
           <div className="bg-gradient-to-r from-orange-900 to-orange-800 border border-orange-700 rounded-lg p-6">
-         <div className="bg-gradient-to-r from-red-900 to-red-800 border border-red-700 rounded-lg p-6">
             <div className="flex items-center justify-between">
               <div>
-               <p className="text-red-300 text-sm font-medium">Pending Revenue</p>
+                <p className="text-orange-300 text-sm font-medium">Pending Revenue</p>
                 <p className="text-2xl font-bold text-white">€{economics.pendingRevenue.toFixed(2)}</p>
               </div>
-             <Calendar className="w-8 h-8 text-red-400" />
+              <Calendar className="w-8 h-8 text-orange-400" />
             </div>
           </div>
         </div>
