@@ -162,9 +162,9 @@ export const ViewReservations: React.FC = () => {
 
   return (
     <div className="max-w-7xl mx-auto">
-      <div className="bg-white border border-gray-200 rounded-2xl shadow-lg p-8">
+      <div className="bg-white border border-gray-300 rounded-2xl shadow-xl p-8">
         <div className="mb-8">
-          <h1 className="text-3xl font-bold text-gray-900 mb-2 tracking-wide">View & Manage Reservations</h1>
+          <h1 className="text-3xl font-bold text-gray-800 mb-2 tracking-wide">View & Manage Reservations</h1>
           <p className="text-gray-600">Manage all your studio appointments</p>
         </div>
 
@@ -177,7 +177,7 @@ export const ViewReservations: React.FC = () => {
                 placeholder="Search by reservation #, name or phone..."
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
-                className="w-full pl-10 pr-4 py-3 bg-white border border-gray-300 text-gray-900 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-red-500 transition-colors placeholder-gray-500"
+                className="w-full pl-10 pr-4 py-3 bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-red-500 transition-all placeholder-gray-500 shadow-sm"
               />
             </div>
           </div>
@@ -189,7 +189,7 @@ export const ViewReservations: React.FC = () => {
                 type="date"
                 value={dateFilter.start}
                 onChange={(e) => setDateFilter(prev => ({ ...prev, start: e.target.value }))}
-                className="px-4 py-3 bg-white border border-gray-300 text-gray-900 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-red-500 transition-colors"
+                className="px-4 py-3 bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-red-500 transition-all shadow-sm"
               />
             </div>
             <div>
@@ -198,7 +198,7 @@ export const ViewReservations: React.FC = () => {
                 type="date"
                 value={dateFilter.end}
                 onChange={(e) => setDateFilter(prev => ({ ...prev, end: e.target.value }))}
-                className="px-4 py-3 bg-white border border-gray-300 text-gray-900 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-red-500 transition-colors"
+                className="px-4 py-3 bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-red-500 transition-all shadow-sm"
               />
             </div>
           </div>
@@ -207,7 +207,7 @@ export const ViewReservations: React.FC = () => {
             <button
               onClick={handleSendTomorrowsReservations}
               disabled={sendingDailyReservations}
-              className="bg-gradient-to-r from-red-600 to-red-700 text-white px-6 py-3 rounded-lg hover:from-red-700 hover:to-red-800 transition-all font-semibold flex items-center space-x-2 disabled:opacity-50 disabled:cursor-not-allowed"
+              className="bg-gradient-to-r from-red-600 to-red-700 text-white px-6 py-3 rounded-lg hover:from-red-700 hover:to-red-800 transition-all font-semibold flex items-center space-x-2 disabled:opacity-50 disabled:cursor-not-allowed shadow-md hover:shadow-lg"
             >
               <Send size={20} />
               <span>{sendingDailyReservations ? 'Sending...' : 'Send Tomorrow\'s Reservations'}</span>
@@ -215,27 +215,27 @@ export const ViewReservations: React.FC = () => {
           </div>
         </div>
 
-        <div className="overflow-x-auto">
+        <div className="overflow-x-auto bg-gray-50 rounded-xl border border-gray-200 shadow-sm">
           <table className="w-full">
             <thead>
-              <tr className="border-b border-gray-200">
-                <th className="text-left py-4 px-4 font-semibold text-gray-900">Reservation #</th>
-                <th className="text-left py-4 px-4 font-semibold text-gray-900">Client</th>
-                <th className="text-left py-4 px-4 font-semibold text-gray-900">Date & Time</th>
-                <th className="text-left py-4 px-4 font-semibold text-gray-900">Artist</th>
-                <th className="text-left py-4 px-4 font-semibold text-gray-900">Price</th>
-                <th className="text-left py-4 px-4 font-semibold text-gray-900">Payment Status</th>
-                <th className="text-left py-4 px-4 font-semibold text-gray-900">Actions</th>
+              <tr className="border-b border-gray-300 bg-gray-100">
+                <th className="text-left py-4 px-4 font-semibold text-gray-800">Reservation #</th>
+                <th className="text-left py-4 px-4 font-semibold text-gray-800">Client</th>
+                <th className="text-left py-4 px-4 font-semibold text-gray-800">Date & Time</th>
+                <th className="text-left py-4 px-4 font-semibold text-gray-800">Artist</th>
+                <th className="text-left py-4 px-4 font-semibold text-gray-800">Price</th>
+                <th className="text-left py-4 px-4 font-semibold text-gray-800">Payment Status</th>
+                <th className="text-left py-4 px-4 font-semibold text-gray-800">Actions</th>
               </tr>
             </thead>
             <tbody>
               {filteredReservations.map((reservation) => (
                 <React.Fragment key={reservation.id}>
-                  <tr className={`border-b border-gray-100 hover:bg-gray-50 ${reservation.isPaid ? 'bg-green-50' : ''}`}>
+                  <tr className={`border-b border-gray-200 hover:bg-white transition-colors ${reservation.isPaid ? 'bg-green-50' : 'bg-gray-50'}`}>
                     <td className="py-4 px-4">
                       <button
                         onClick={() => setSelectedReservationId(reservation.id)}
-                        className="font-mono text-red-600 font-bold text-lg hover:text-red-700 transition-colors cursor-pointer"
+                        className="font-mono text-red-600 font-bold text-lg hover:text-red-800 transition-colors cursor-pointer hover:underline"
                       >
                         #{reservation.reservationNumber}
                       </button>

@@ -125,15 +125,15 @@ export const Economics: React.FC = () => {
 
   return (
     <div className="max-w-7xl mx-auto">
-      <div className="bg-white border border-gray-200 rounded-2xl shadow-lg p-8">
+      <div className="bg-white border border-gray-300 rounded-2xl shadow-xl p-8">
         <div className="flex justify-between items-center mb-8">
           <div>
-            <h1 className="text-3xl font-bold text-gray-900 mb-2 tracking-wide">Economics Dashboard</h1>
+            <h1 className="text-3xl font-bold text-gray-800 mb-2 tracking-wide">Economics Dashboard</h1>
             <p className="text-gray-600">Track your studio's financial performance</p>
           </div>
           <button
             onClick={exportData}
-            className="bg-gradient-to-r from-red-600 to-red-700 text-white px-6 py-3 rounded-lg hover:from-red-700 hover:to-red-800 transition-all flex items-center space-x-2 font-semibold"
+            className="bg-gradient-to-r from-red-600 to-red-700 text-white px-6 py-3 rounded-lg hover:from-red-700 hover:to-red-800 transition-all flex items-center space-x-2 font-semibold shadow-md hover:shadow-lg"
           >
             <Download size={20} />
             <span>Export Data</span>
@@ -141,7 +141,7 @@ export const Economics: React.FC = () => {
         </div>
 
         {/* Time Range Filters */}
-        <div className="mb-8 bg-gray-50 border border-gray-200 rounded-lg p-6">
+        <div className="mb-8 bg-gray-50 border border-gray-300 rounded-lg p-6 shadow-sm">
           <div className="flex flex-wrap gap-4 items-center">
             <div className="flex gap-2">
               {[
@@ -155,8 +155,8 @@ export const Economics: React.FC = () => {
                   onClick={() => handleTimeRangeChange(key as any)}
                   className={`px-4 py-2 rounded-lg font-medium transition-colors ${
                     timeRange === key
-                      ? 'bg-red-600 text-white'
-                      : 'bg-white text-gray-700 hover:bg-gray-100 border border-gray-300'
+                      ? 'bg-red-600 text-white shadow-md'
+                      : 'bg-white text-gray-700 hover:bg-gray-100 border border-gray-300 hover:shadow-md'
                   }`}
                 >
                   {label}

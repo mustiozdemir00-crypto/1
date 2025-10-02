@@ -105,14 +105,14 @@ export const ReservationAnalytics: React.FC = () => {
 
   return (
     <div className="max-w-7xl mx-auto">
-      <div className="bg-white border border-gray-200 rounded-2xl shadow-lg p-8">
+      <div className="bg-white border border-gray-300 rounded-2xl shadow-xl p-8">
         <div className="mb-8">
-          <h1 className="text-3xl font-bold text-gray-900 mb-2 tracking-wide">Reservation Analytics</h1>
+          <h1 className="text-3xl font-bold text-gray-800 mb-2 tracking-wide">Reservation Analytics</h1>
           <p className="text-gray-600">Track reservations by creation date</p>
         </div>
 
         {/* Period Selection */}
-        <div className="mb-8 bg-gray-50 border border-gray-200 rounded-lg p-6">
+        <div className="mb-8 bg-gray-50 border border-gray-300 rounded-lg p-6 shadow-sm">
           <div className="flex flex-wrap gap-4">
             {[
               { key: 'today', label: 'Today' },
@@ -125,8 +125,8 @@ export const ReservationAnalytics: React.FC = () => {
                 onClick={() => setSelectedPeriod(key as any)}
                 className={`px-6 py-3 rounded-lg font-medium transition-colors ${
                   selectedPeriod === key
-                    ? 'bg-red-600 text-white'
-                    : 'bg-white text-gray-700 hover:bg-gray-100 border border-gray-300'
+                    ? 'bg-red-600 text-white shadow-md'
+                    : 'bg-white text-gray-700 hover:bg-gray-100 border border-gray-300 hover:shadow-md'
                 }`}
               >
                 {label}

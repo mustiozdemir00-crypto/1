@@ -54,16 +54,16 @@ export const Dashboard: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gray-900 flex">
+    <div className="min-h-screen bg-gray-50 flex">
       <Navigation activeTab={activeTab} setActiveTab={setActiveTab} />
-      <div className="flex-1 ml-64">
-        <div className="p-8">
+      <div className="flex-1 ml-64 bg-gray-100">
+        <div className="p-8 min-h-screen">
           {/* Test button for daily summary - only show for admin users */}
           {user?.role === 'admin' && (
             <div className="mb-4">
               <button
                 onClick={testDailySummary}
-                className="bg-gradient-to-r from-yellow-600 to-amber-700 text-black px-6 py-3 rounded-lg hover:from-yellow-500 hover:to-amber-600 transition-all font-semibold text-sm flex items-center space-x-2"
+                className="bg-gradient-to-r from-red-600 to-red-700 text-white px-6 py-3 rounded-lg hover:from-red-700 hover:to-red-800 transition-all font-semibold text-sm flex items-center space-x-2 shadow-md"
               >
                 <span>📊 Send Daily Reservations</span>
               </button>

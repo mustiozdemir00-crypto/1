@@ -107,15 +107,15 @@ export const StaffManagement: React.FC = () => {
 
   return (
     <div className="max-w-6xl mx-auto">
-      <div className="bg-black border border-red-900 rounded-2xl shadow-lg p-8">
+      <div className="bg-white border border-gray-300 rounded-2xl shadow-xl p-8">
         <div className="flex justify-between items-center mb-8">
           <div>
-            <h1 className="text-3xl font-bold text-white mb-2 tracking-wide">Staff Management</h1>
-            <p className="text-white">Manage your studio team members</p>
+            <h1 className="text-3xl font-bold text-gray-800 mb-2 tracking-wide">Staff Management</h1>
+            <p className="text-gray-600">Manage your studio team members</p>
           </div>
           <button
             onClick={() => setShowAddForm(true)}
-            className="bg-gradient-to-r from-yellow-600 to-amber-700 text-black px-6 py-3 rounded-lg hover:from-yellow-500 hover:to-amber-600 transition-all flex items-center space-x-2 font-semibold"
+            className="bg-gradient-to-r from-red-600 to-red-700 text-white px-6 py-3 rounded-lg hover:from-red-700 hover:to-red-800 transition-all flex items-center space-x-2 font-semibold shadow-md hover:shadow-lg"
           >
             <Plus size={20} />
             <span>Add Staff Member</span>
@@ -123,14 +123,14 @@ export const StaffManagement: React.FC = () => {
         </div>
 
         {showAddForm && (
-          <div className="mb-8 bg-gray-900 border border-red-800 rounded-lg p-6">
-            <h2 className="text-xl font-semibold mb-4 text-white">
+          <div className="mb-8 bg-gray-50 border border-gray-300 rounded-lg p-6 shadow-sm">
+            <h2 className="text-xl font-semibold mb-4 text-gray-800">
               {editingStaff ? 'Edit Staff Member' : 'Add New Staff Member'}
             </h2>
             <form onSubmit={handleSubmit} className="space-y-4">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div>
-                  <label className="block text-sm font-medium text-white mb-2">
+                  <label className="block text-sm font-medium text-gray-700 mb-2">
                     Full Name
                   </label>
                   <input
@@ -138,7 +138,7 @@ export const StaffManagement: React.FC = () => {
                     name="name"
                     value={formData.name}
                     onChange={handleInputChange}
-                    className="w-full px-4 py-3 bg-black border border-gray-500 text-white rounded-lg focus:ring-2 focus:ring-red-500 focus:border-red-500 transition-colors placeholder-gray-400"
+                    className="w-full px-4 py-3 bg-white border border-gray-300 text-gray-900 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-red-500 transition-all placeholder-gray-500 shadow-sm"
                     required
                   />
                 </div>

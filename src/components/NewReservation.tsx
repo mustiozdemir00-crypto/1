@@ -136,15 +136,15 @@ export const NewReservation: React.FC<NewReservationProps> = ({ onReservationCre
 
   return (
     <div className="max-w-4xl mx-auto">
-      <div className="bg-white border border-gray-200 rounded-2xl shadow-lg p-8">
+      <div className="bg-white border border-gray-300 rounded-2xl shadow-xl p-8">
         <div className="mb-8">
-          <h1 className="text-3xl font-bold text-gray-900 mb-2 tracking-wide">New Reservation</h1>
+          <h1 className="text-3xl font-bold text-gray-800 mb-2 tracking-wide">New Reservation</h1>
           <p className="text-gray-600">Create a new appointment booking</p>
         </div>
 
         {success && (
-          <div className="mb-6 bg-green-50 border border-green-300 rounded-lg p-4">
-            <p className="text-green-700">Reservation created successfully!</p>
+          <div className="mb-6 bg-green-50 border border-green-300 rounded-lg p-4 shadow-sm">
+            <p className="text-green-800 font-medium">Reservation created successfully!</p>
           </div>
         )}
 
@@ -160,7 +160,7 @@ export const NewReservation: React.FC<NewReservationProps> = ({ onReservationCre
                 name="firstName"
                 value={formData.firstName}
                 onChange={handleInputChange}
-                className="w-full px-4 py-3 bg-white border border-gray-300 text-gray-900 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-red-500 transition-colors placeholder-gray-500"
+                className="w-full px-4 py-3 bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-red-500 transition-all placeholder-gray-500 shadow-sm"
                 required
               />
             </div>
