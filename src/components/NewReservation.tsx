@@ -101,7 +101,7 @@ export const NewReservation: React.FC<NewReservationProps> = ({ onReservationCre
         lastName: '',
         phone: '',
         appointmentDate: currentDate,
-        appointmentTime: currentTime,
+        appointmentTime: '',
         totalPrice: '',
         depositPaid: '',
         artistId: '',
