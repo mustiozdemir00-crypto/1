@@ -162,7 +162,7 @@ export const ViewReservations: React.FC = () => {
 
   return (
     <div className="max-w-7xl mx-auto">
-      <div className="bg-gray-800 border border-orange-900 rounded-2xl shadow-lg p-8">
+      <div className="bg-black border border-red-900 rounded-2xl shadow-lg p-8">
         <div className="mb-8">
           <h1 className="text-3xl font-bold text-white mb-2 tracking-wide">View & Manage Reservations</h1>
           <p className="text-white">Manage all your studio appointments</p>
@@ -171,13 +171,13 @@ export const ViewReservations: React.FC = () => {
         <div className="mb-6 flex flex-col md:flex-row gap-4 items-end">
           <div className="flex-1">
             <div className="relative">
-              <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-orange-400" size={20} />
+              <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-red-400" size={20} />
               <input
                 type="text"
                 placeholder="Search by reservation #, name or phone..."
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
-                className="w-full pl-10 pr-4 py-3 bg-gray-700 border border-gray-600 text-white rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-orange-500 transition-colors placeholder-gray-400"
+                className="w-full pl-10 pr-4 py-3 bg-gray-900 border border-gray-600 text-white rounded-lg focus:ring-2 focus:ring-red-500 focus:border-red-500 transition-colors placeholder-gray-400"
               />
             </div>
           </div>
@@ -189,7 +189,7 @@ export const ViewReservations: React.FC = () => {
                 type="date"
                 value={dateFilter.start}
                 onChange={(e) => setDateFilter(prev => ({ ...prev, start: e.target.value }))}
-                className="px-4 py-3 bg-gray-700 border border-gray-600 text-white rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-orange-500 transition-colors"
+                className="px-4 py-3 bg-gray-900 border border-gray-600 text-white rounded-lg focus:ring-2 focus:ring-red-500 focus:border-red-500 transition-colors"
               />
             </div>
             <div>
@@ -198,7 +198,7 @@ export const ViewReservations: React.FC = () => {
                 type="date"
                 value={dateFilter.end}
                 onChange={(e) => setDateFilter(prev => ({ ...prev, end: e.target.value }))}
-                className="px-4 py-3 bg-gray-700 border border-gray-600 text-white rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-orange-500 transition-colors"
+                className="px-4 py-3 bg-gray-900 border border-gray-600 text-white rounded-lg focus:ring-2 focus:ring-red-500 focus:border-red-500 transition-colors"
               />
             </div>
           </div>
@@ -219,6 +219,7 @@ export const ViewReservations: React.FC = () => {
           <table className="w-full">
             <thead>
               <tr className="border-b border-orange-900">
+              <tr className="border-b border-red-900">
                 <th className="text-left py-4 px-4 font-semibold text-white">Reservation #</th>
                 <th className="text-left py-4 px-4 font-semibold text-white">Client</th>
                 <th className="text-left py-4 px-4 font-semibold text-white">Date & Time</th>
