@@ -162,43 +162,43 @@ export const ViewReservations: React.FC = () => {
 
   return (
     <div className="max-w-7xl mx-auto">
-      <div className="bg-black border border-red-900 rounded-2xl shadow-lg p-8">
+      <div className="bg-white border border-gray-200 rounded-2xl shadow-lg p-8">
         <div className="mb-8">
-          <h1 className="text-3xl font-bold text-white mb-2 tracking-wide">View & Manage Reservations</h1>
-          <p className="text-white">Manage all your studio appointments</p>
+          <h1 className="text-3xl font-bold text-gray-900 mb-2 tracking-wide">View & Manage Reservations</h1>
+          <p className="text-gray-600">Manage all your studio appointments</p>
         </div>
 
         <div className="mb-6 flex flex-col md:flex-row gap-4 items-end">
           <div className="flex-1">
             <div className="relative">
-              <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-red-400" size={20} />
+              <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-red-500" size={20} />
               <input
                 type="text"
                 placeholder="Search by reservation #, name or phone..."
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
-                className="w-full pl-10 pr-4 py-3 bg-gray-900 border border-gray-600 text-white rounded-lg focus:ring-2 focus:ring-red-500 focus:border-red-500 transition-colors placeholder-gray-400"
+                className="w-full pl-10 pr-4 py-3 bg-white border border-gray-300 text-gray-900 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-red-500 transition-colors placeholder-gray-500"
               />
             </div>
           </div>
           
           <div className="flex gap-4">
             <div>
-              <label className="block text-sm font-medium text-white mb-1">From</label>
+              <label className="block text-sm font-medium text-gray-700 mb-1">From</label>
               <input
                 type="date"
                 value={dateFilter.start}
                 onChange={(e) => setDateFilter(prev => ({ ...prev, start: e.target.value }))}
-                className="px-4 py-3 bg-gray-900 border border-gray-600 text-white rounded-lg focus:ring-2 focus:ring-red-500 focus:border-red-500 transition-colors"
+                className="px-4 py-3 bg-white border border-gray-300 text-gray-900 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-red-500 transition-colors"
               />
             </div>
             <div>
-              <label className="block text-sm font-medium text-white mb-1">To</label>
+              <label className="block text-sm font-medium text-gray-700 mb-1">To</label>
               <input
                 type="date"
                 value={dateFilter.end}
                 onChange={(e) => setDateFilter(prev => ({ ...prev, end: e.target.value }))}
-                className="px-4 py-3 bg-gray-900 border border-gray-600 text-white rounded-lg focus:ring-2 focus:ring-red-500 focus:border-red-500 transition-colors"
+                className="px-4 py-3 bg-white border border-gray-300 text-gray-900 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-red-500 transition-colors"
               />
             </div>
           </div>
@@ -207,7 +207,7 @@ export const ViewReservations: React.FC = () => {
             <button
               onClick={handleSendTomorrowsReservations}
               disabled={sendingDailyReservations}
-              className="bg-gradient-to-r from-blue-600 to-blue-700 text-white px-6 py-3 rounded-lg hover:from-blue-500 hover:to-blue-600 transition-all font-semibold flex items-center space-x-2 disabled:opacity-50 disabled:cursor-not-allowed"
+              className="bg-gradient-to-r from-red-600 to-red-700 text-white px-6 py-3 rounded-lg hover:from-red-700 hover:to-red-800 transition-all font-semibold flex items-center space-x-2 disabled:opacity-50 disabled:cursor-not-allowed"
             >
               <Send size={20} />
               <span>{sendingDailyReservations ? 'Sending...' : 'Send Tomorrow\'s Reservations'}</span>
@@ -218,24 +218,24 @@ export const ViewReservations: React.FC = () => {
         <div className="overflow-x-auto">
           <table className="w-full">
             <thead>
-              <tr className="border-b border-red-900">
-                <th className="text-left py-4 px-4 font-semibold text-white">Reservation #</th>
-                <th className="text-left py-4 px-4 font-semibold text-white">Client</th>
-                <th className="text-left py-4 px-4 font-semibold text-white">Date & Time</th>
-                <th className="text-left py-4 px-4 font-semibold text-white">Artist</th>
-                <th className="text-left py-4 px-4 font-semibold text-white">Price</th>
-                <th className="text-left py-4 px-4 font-semibold text-white">Payment Status</th>
-                <th className="text-left py-4 px-4 font-semibold text-white">Actions</th>
+              <tr className="border-b border-gray-200">
+                <th className="text-left py-4 px-4 font-semibold text-gray-900">Reservation #</th>
+                <th className="text-left py-4 px-4 font-semibold text-gray-900">Client</th>
+                <th className="text-left py-4 px-4 font-semibold text-gray-900">Date & Time</th>
+                <th className="text-left py-4 px-4 font-semibold text-gray-900">Artist</th>
+                <th className="text-left py-4 px-4 font-semibold text-gray-900">Price</th>
+                <th className="text-left py-4 px-4 font-semibold text-gray-900">Payment Status</th>
+                <th className="text-left py-4 px-4 font-semibold text-gray-900">Actions</th>
               </tr>
             </thead>
             <tbody>
               {filteredReservations.map((reservation) => (
                 <React.Fragment key={reservation.id}>
-                  <tr className={`border-b border-gray-700 hover:bg-gray-700/50 ${reservation.isPaid ? 'bg-green-900/20' : ''}`}>
+                  <tr className={`border-b border-gray-100 hover:bg-gray-50 ${reservation.isPaid ? 'bg-green-50' : ''}`}>
                     <td className="py-4 px-4">
                       <button
                         onClick={() => setSelectedReservationId(reservation.id)}
-                        className="font-mono text-yellow-400 font-bold text-lg hover:text-yellow-300 transition-colors cursor-pointer"
+                        className="font-mono text-red-600 font-bold text-lg hover:text-red-700 transition-colors cursor-pointer"
                       >
                         #{reservation.reservationNumber}
                       </button>
@@ -248,7 +248,7 @@ export const ViewReservations: React.FC = () => {
                               setSelectedImages(reservation.designImages);
                               setSelectedImageIndex(0);
                             }}
-                            className="w-8 h-8 rounded-full overflow-hidden border-2 border-gray-600 hover:border-yellow-500 transition-colors flex-shrink-0"
+                            className="w-8 h-8 rounded-full overflow-hidden border-2 border-gray-300 hover:border-red-500 transition-colors flex-shrink-0"
                           >
                             <img
                               src={reservation.designImages[0]}
@@ -264,31 +264,31 @@ export const ViewReservations: React.FC = () => {
                             type="text"
                             value={editFormData.firstName}
                             onChange={(e) => setEditFormData(prev => ({ ...prev, firstName: e.target.value }))}
-                            className="w-full px-2 py-1 bg-gray-600 border border-gray-500 text-white rounded text-sm"
+                            className="w-full px-2 py-1 bg-white border border-gray-300 text-gray-900 rounded text-sm"
                             placeholder="First Name"
                           />
                           <input
                             type="text"
                             value={editFormData.lastName}
                             onChange={(e) => setEditFormData(prev => ({ ...prev, lastName: e.target.value }))}
-                            className="w-full px-2 py-1 bg-gray-600 border border-gray-500 text-white rounded text-sm"
+                            className="w-full px-2 py-1 bg-white border border-gray-300 text-gray-900 rounded text-sm"
                             placeholder="Last Name"
                           />
                           <input
                             type="tel"
                             value={editFormData.phone}
                             onChange={(e) => setEditFormData(prev => ({ ...prev, phone: e.target.value }))}
-                            className="w-full px-2 py-1 bg-gray-600 border border-gray-500 text-white rounded text-sm"
+                            className="w-full px-2 py-1 bg-white border border-gray-300 text-gray-900 rounded text-sm"
                             placeholder="Phone"
                           />
                         </div>
                       ) : (
                         <div>
-                          <div className="font-medium text-white">
+                          <div className="font-medium text-gray-900">
                             {reservation.firstName} {reservation.lastName}
                           </div>
                           <div className="text-sm text-gray-400">{reservation.phone}</div>
-                          <div className="text-xs text-gray-500 flex items-center mt-1">
+                          <div className="text-xs text-gray-600 flex items-center mt-1">
                             <Calendar size={10} className="mr-1" />
                             Created: {new Date(reservation.createdAt).toLocaleDateString()} at {new Date(reservation.createdAt).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
                           </div>
@@ -313,10 +313,11 @@ export const ViewReservations: React.FC = () => {
                         </div>
                       ) : (
                         <div className="text-sm">
-                          <div className="font-medium text-white">
+                          <div className="font-medium text-gray-900">
                             {new Date(reservation.appointmentDate).toLocaleDateString()}
                           </div>
                           <div className="text-gray-400">{reservation.appointmentTime}</div>
+                          <div className="text-gray-500">{reservation.appointmentTime}</div>
                         </div>
                       )}
                     </td>
@@ -325,7 +326,7 @@ export const ViewReservations: React.FC = () => {
                         <select
                           value={editFormData.artistId}
                           onChange={(e) => setEditFormData(prev => ({ ...prev, artistId: e.target.value }))}
-                          className="w-full px-2 py-1 bg-gray-600 border border-gray-500 text-white rounded text-sm"
+                          className="w-full px-2 py-1 bg-white border border-gray-300 text-gray-900 rounded text-sm"
                         >
                           <option value="">Select artist</option>
                           {getArtists().map(artist => (
@@ -333,31 +334,33 @@ export const ViewReservations: React.FC = () => {
                           ))}
                         </select>
                       ) : (
-                        <span className="text-sm text-white">{getArtistName(reservation.artistId)}</span>
+                        <span className="text-sm text-gray-900">{getArtistName(reservation.artistId)}</span>
                       )}
                     </td>
                     <td className="py-4 px-4">
                       {editingReservation === reservation.id ? (
                         <div className="space-y-2">
-                          <label className="block text-xs text-gray-400">Total Price (€)</label>
+                          <label className="block text-xs text-gray-600">Total Price (€)</label>
                           <input
                             type="number"
                             step="0.01"
                             value={editFormData.totalPrice}
                             onChange={(e) => setEditFormData(prev => ({ ...prev, totalPrice: e.target.value }))}
-                            className="w-full px-2 py-1 bg-gray-600 border border-gray-500 text-white rounded text-sm"
+                            className="w-full px-2 py-1 bg-white border border-gray-300 text-gray-900 rounded text-sm"
                             placeholder="Total Price"
                           />
                           <label className="block text-xs text-gray-400">Deposit (€)</label>
+                          <label className="block text-xs text-gray-600">Deposit (€)</label>
                           <input
                             type="number"
                             step="0.01"
                             value={editFormData.depositPaid}
                             onChange={(e) => setEditFormData(prev => ({ ...prev, depositPaid: e.target.value }))}
-                            className="w-full px-2 py-1 bg-gray-600 border border-gray-500 text-white rounded text-sm"
+                            className="w-full px-2 py-1 bg-white border border-gray-300 text-gray-900 rounded text-sm"
                             placeholder="Deposit"
                           />
                           <div className="text-xs text-gray-400">
+                          <div className="text-xs text-gray-600">
                             Remaining: €{editFormData.totalPrice && editFormData.depositPaid 
                               ? (parseFloat(editFormData.totalPrice) - parseFloat(editFormData.depositPaid)).toFixed(2)
                               : '0.00'}
@@ -365,9 +368,9 @@ export const ViewReservations: React.FC = () => {
                         </div>
                       ) : (
                         <div className="text-sm">
-                          <div className="font-medium text-white">€{reservation.totalPrice.toFixed(2)}</div>
-                          <div className="text-gray-400">Deposit: €{reservation.depositPaid.toFixed(2)}</div>
-                          <div className="text-gray-400">Remaining: €{(reservation.totalPrice - reservation.depositPaid).toFixed(2)}</div>
+                          <div className="font-medium text-gray-900">€{reservation.totalPrice.toFixed(2)}</div>
+                          <div className="text-gray-500">Deposit: €{reservation.depositPaid.toFixed(2)}</div>
+                          <div className="text-gray-500">Remaining: €{(reservation.totalPrice - reservation.depositPaid).toFixed(2)}</div>
                         </div>
                       )}
                     </td>
@@ -379,8 +382,8 @@ export const ViewReservations: React.FC = () => {
                           })}
                           className={`w-full px-3 py-1 rounded text-xs font-medium transition-colors ${
                             reservation.depositPaidStatus
-                              ? 'bg-green-900/30 text-green-400 hover:bg-green-900/50'
-                              : 'bg-gray-700 text-gray-300 hover:bg-gray-600'
+                              ? 'bg-green-100 text-green-700 hover:bg-green-200'
+                              : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
                           }`}
                         >
                           {reservation.depositPaidStatus ? (
@@ -399,8 +402,8 @@ export const ViewReservations: React.FC = () => {
                           })}
                           className={`w-full px-3 py-1 rounded text-xs font-medium transition-colors ${
                             reservation.restPaidStatus
-                              ? 'bg-green-900/30 text-green-400 hover:bg-green-900/50'
-                              : 'bg-gray-700 text-gray-300 hover:bg-gray-600'
+                              ? 'bg-green-100 text-green-700 hover:bg-green-200'
+                              : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
                           }`}
                         >
                           {reservation.restPaidStatus ? (
@@ -420,14 +423,14 @@ export const ViewReservations: React.FC = () => {
                           <>
                             <button
                               onClick={handleSaveEdit}
-                              className="p-2 text-green-400 hover:bg-green-900/20 rounded-lg transition-colors"
+                              className="p-2 text-green-600 hover:bg-green-50 rounded-lg transition-colors"
                               title="Save"
                             >
                               <Save size={16} />
                             </button>
                             <button
                               onClick={handleCancelEdit}
-                              className="p-2 text-gray-400 hover:bg-gray-700 rounded-lg transition-colors"
+                              className="p-2 text-gray-600 hover:bg-gray-100 rounded-lg transition-colors"
                               title="Cancel"
                             >
                               <X size={16} />
@@ -437,28 +440,28 @@ export const ViewReservations: React.FC = () => {
                           <>
                             <button
                               onClick={() => setSelectedReservationId(reservation.id)}
-                              className="p-2 text-green-400 hover:bg-green-900/20 rounded-lg transition-colors"
+                              className="p-2 text-green-600 hover:bg-green-50 rounded-lg transition-colors"
                               title="View Details"
                             >
                               <Eye size={16} />
                             </button>
                             <button
                               onClick={() => handleEdit(reservation)}
-                              className="p-2 text-blue-400 hover:bg-blue-900/20 rounded-lg transition-colors"
+                              className="p-2 text-blue-600 hover:bg-blue-50 rounded-lg transition-colors"
                               title="Edit"
                             >
                               <Edit size={16} />
                             </button>
                             <button
                               onClick={() => handleDownloadPDF(reservation)}
-                              className="p-2 text-blue-400 hover:bg-blue-900/20 rounded-lg transition-colors"
+                              className="p-2 text-blue-600 hover:bg-blue-50 rounded-lg transition-colors"
                               title="Download PDF"
                             >
                               <Download size={16} />
                             </button>
                             <button
                               onClick={() => handleDelete(reservation.id)}
-                              className="p-2 text-red-400 hover:bg-red-900/20 rounded-lg transition-colors"
+                              className="p-2 text-red-600 hover:bg-red-50 rounded-lg transition-colors"
                               title="Delete"
                             >
                               <Trash2 size={16} />
@@ -469,14 +472,14 @@ export const ViewReservations: React.FC = () => {
                     </td>
                   </tr>
                   {editingReservation === reservation.id && (
-                    <tr className="border-b border-gray-700 bg-gray-700/30">
+                    <tr className="border-b border-gray-100 bg-gray-50">
                       <td colSpan={7} className="py-4 px-4">
                         <div>
-                          <label className="block text-sm font-medium text-white mb-2">Notes</label>
+                          <label className="block text-sm font-medium text-gray-700 mb-2">Notes</label>
                           <textarea
                             value={editFormData.notes}
                             onChange={(e) => setEditFormData(prev => ({ ...prev, notes: e.target.value }))}
-                            className="w-full px-3 py-2 bg-gray-600 border border-gray-500 text-white rounded"
+                            className="w-full px-3 py-2 bg-white border border-gray-300 text-gray-900 rounded"
                             rows={3}
                             placeholder="Add notes..."
                           />
@@ -492,17 +495,17 @@ export const ViewReservations: React.FC = () => {
 
         {filteredReservations.length === 0 && (
           <div className="text-center py-12">
-            <Calendar className="mx-auto w-16 h-16 text-yellow-400 mb-4" />
-            <p className="text-white text-lg">No reservations found</p>
-            <p className="text-white">Try adjusting your search or date filters</p>
+            <Calendar className="mx-auto w-16 h-16 text-red-500 mb-4" />
+            <p className="text-gray-900 text-lg">No reservations found</p>
+            <p className="text-gray-600">Try adjusting your search or date filters</p>
           </div>
         )}
       </div>
 
       {loading && (
         <div className="text-center py-12">
-          <div className="inline-block animate-spin rounded-full h-8 w-8 border-b-2 border-yellow-600"></div>
-          <p className="text-white mt-2">Loading reservations...</p>
+          <div className="inline-block animate-spin rounded-full h-8 w-8 border-b-2 border-red-600"></div>
+          <p className="text-gray-900 mt-2">Loading reservations...</p>
         </div>
       )}
 

@@ -125,15 +125,15 @@ export const Economics: React.FC = () => {
 
   return (
     <div className="max-w-7xl mx-auto">
-      <div className="bg-black border border-red-900 rounded-2xl shadow-lg p-8">
+      <div className="bg-white border border-gray-200 rounded-2xl shadow-lg p-8">
         <div className="flex justify-between items-center mb-8">
           <div>
-            <h1 className="text-3xl font-bold text-white mb-2 tracking-wide">Economics Dashboard</h1>
-            <p className="text-white">Track your studio's financial performance</p>
+            <h1 className="text-3xl font-bold text-gray-900 mb-2 tracking-wide">Economics Dashboard</h1>
+            <p className="text-gray-600">Track your studio's financial performance</p>
           </div>
           <button
             onClick={exportData}
-            className="bg-gradient-to-r from-yellow-600 to-amber-700 text-black px-6 py-3 rounded-lg hover:from-yellow-500 hover:to-amber-600 transition-all flex items-center space-x-2 font-semibold"
+            className="bg-gradient-to-r from-red-600 to-red-700 text-white px-6 py-3 rounded-lg hover:from-red-700 hover:to-red-800 transition-all flex items-center space-x-2 font-semibold"
           >
             <Download size={20} />
             <span>Export Data</span>
@@ -141,7 +141,7 @@ export const Economics: React.FC = () => {
         </div>
 
         {/* Time Range Filters */}
-        <div className="mb-8 bg-gray-900 border border-red-800 rounded-lg p-6">
+        <div className="mb-8 bg-gray-50 border border-gray-200 rounded-lg p-6">
           <div className="flex flex-wrap gap-4 items-center">
             <div className="flex gap-2">
               {[
@@ -155,8 +155,8 @@ export const Economics: React.FC = () => {
                   onClick={() => handleTimeRangeChange(key as any)}
                   className={`px-4 py-2 rounded-lg font-medium transition-colors ${
                     timeRange === key
-                      ? 'bg-yellow-600 text-black'
-                      : 'bg-gray-600 text-white hover:bg-gray-500'
+                      ? 'bg-red-600 text-white'
+                      : 'bg-white text-gray-700 hover:bg-gray-100 border border-gray-300'
                   }`}
                 >
                   {label}
@@ -167,21 +167,21 @@ export const Economics: React.FC = () => {
             {timeRange === 'custom' && (
               <div className="flex gap-4 items-center">
                 <div>
-                  <label className="block text-sm font-medium text-white mb-1">From</label>
+                  <label className="block text-sm font-medium text-gray-700 mb-1">From</label>
                   <input
                     type="date"
                     value={dateFilter.start}
                     onChange={(e) => setDateFilter(prev => ({ ...prev, start: e.target.value }))}
-                    className="px-3 py-2 bg-black border border-gray-500 text-white rounded-lg focus:ring-2 focus:ring-red-500 focus:border-red-500 transition-colors"
+                    className="px-3 py-2 bg-white border border-gray-300 text-gray-900 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-red-500 transition-colors"
                   />
                 </div>
                 <div>
-                  <label className="block text-sm font-medium text-white mb-1">To</label>
+                  <label className="block text-sm font-medium text-gray-700 mb-1">To</label>
                   <input
                     type="date"
                     value={dateFilter.end}
                     onChange={(e) => setDateFilter(prev => ({ ...prev, end: e.target.value }))}
-                   className="px-3 py-2 bg-black border border-gray-500 text-white rounded-lg focus:ring-2 focus:ring-red-500 focus:border-red-500 transition-colors"
+                   className="px-3 py-2 bg-white border border-gray-300 text-gray-900 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-red-500 transition-colors"
                   />
                 </div>
               </div>
@@ -234,50 +234,50 @@ export const Economics: React.FC = () => {
 
         {/* Additional Metrics */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
-          <div className="bg-gray-700 border border-gray-600 rounded-lg p-6">
-            <h3 className="text-lg font-semibold text-white mb-4">Reservations Overview</h3>
+          <div className="bg-gray-50 border border-gray-200 rounded-lg p-6">
+            <h3 className="text-lg font-semibold text-gray-900 mb-4">Reservations Overview</h3>
             <div className="space-y-3">
               <div className="flex justify-between">
-                <span className="text-gray-300">Total Reservations:</span>
-                <span className="text-white font-semibold">{economics.totalReservations}</span>
+                <span className="text-gray-600">Total Reservations:</span>
+                <span className="text-gray-900 font-semibold">{economics.totalReservations}</span>
               </div>
               <div className="flex justify-between">
-                <span className="text-gray-300">Deposits Paid:</span>
-                <span className="text-yellow-400 font-semibold">{economics.depositsPaidCount}</span>
+                <span className="text-gray-600">Deposits Paid:</span>
+                <span className="text-red-600 font-semibold">{economics.depositsPaidCount}</span>
               </div>
               <div className="flex justify-between">
-                <span className="text-gray-300">Rest Paid:</span>
-                <span className="text-blue-400 font-semibold">{economics.restPaidCount}</span>
+                <span className="text-gray-600">Rest Paid:</span>
+                <span className="text-blue-600 font-semibold">{economics.restPaidCount}</span>
               </div>
               <div className="flex justify-between">
-                <span className="text-gray-300">Fully Paid:</span>
-                <span className="text-green-400 font-semibold">{economics.fullyPaidCount}</span>
+                <span className="text-gray-600">Fully Paid:</span>
+                <span className="text-green-600 font-semibold">{economics.fullyPaidCount}</span>
               </div>
               <div className="flex justify-between">
-                <span className="text-gray-300">Pending Reservations:</span>
-                <span className="text-yellow-400 font-semibold">{economics.pendingReservations}</span>
+                <span className="text-gray-600">Pending Reservations:</span>
+                <span className="text-red-600 font-semibold">{economics.pendingReservations}</span>
               </div>
             </div>
           </div>
 
-          <div className="bg-gray-700 border border-gray-600 rounded-lg p-6">
-            <h3 className="text-lg font-semibold text-white mb-4">Performance Metrics</h3>
+          <div className="bg-gray-50 border border-gray-200 rounded-lg p-6">
+            <h3 className="text-lg font-semibold text-gray-900 mb-4">Performance Metrics</h3>
             <div className="space-y-3">
               <div className="flex justify-between">
-                <span className="text-gray-300">Average Ticket:</span>
-                <span className="text-white font-semibold">€{economics.averageTicket.toFixed(2)}</span>
+                <span className="text-gray-600">Average Ticket:</span>
+                <span className="text-gray-900 font-semibold">€{economics.averageTicket.toFixed(2)}</span>
               </div>
               <div className="flex justify-between">
-                <span className="text-gray-300">Payment Rate:</span>
-                <span className="text-white font-semibold">
+                <span className="text-gray-600">Payment Rate:</span>
+                <span className="text-gray-900 font-semibold">
                   {economics.totalReservations > 0 
                     ? ((economics.fullyPaidCount / economics.totalReservations) * 100).toFixed(1)
                     : 0}%
                 </span>
               </div>
               <div className="flex justify-between">
-                <span className="text-gray-300">Deposit Rate:</span>
-                <span className="text-white font-semibold">
+                <span className="text-gray-600">Deposit Rate:</span>
+                <span className="text-gray-900 font-semibold">
                   {economics.totalReservations > 0 
                     ? ((economics.depositsPaidCount / economics.totalReservations) * 100).toFixed(1)
                     : 0}%
@@ -286,69 +286,69 @@ export const Economics: React.FC = () => {
             </div>
           </div>
 
-          <div className="bg-gray-700 border border-gray-600 rounded-lg p-6">
-            <h3 className="text-lg font-semibold text-white mb-4">Date Range</h3>
+          <div className="bg-gray-50 border border-gray-200 rounded-lg p-6">
+            <h3 className="text-lg font-semibold text-gray-900 mb-4">Date Range</h3>
             <div className="space-y-3">
               <div className="flex justify-between">
-                <span className="text-gray-300">From:</span>
-                <span className="text-white font-semibold">
+                <span className="text-gray-600">From:</span>
+                <span className="text-gray-900 font-semibold">
                   {new Date(getDateRange().start).toLocaleDateString()}
                 </span>
               </div>
               <div className="flex justify-between">
-                <span className="text-gray-300">To:</span>
-                <span className="text-white font-semibold">
+                <span className="text-gray-600">To:</span>
+                <span className="text-gray-900 font-semibold">
                   {new Date(getDateRange().end).toLocaleDateString()}
                 </span>
               </div>
               <div className="flex justify-between">
-                <span className="text-gray-300">Period:</span>
-                <span className="text-white font-semibold capitalize">{timeRange}</span>
+                <span className="text-gray-600">Period:</span>
+                <span className="text-gray-900 font-semibold capitalize">{timeRange}</span>
               </div>
             </div>
           </div>
         </div>
 
         {/* Recent Transactions */}
-        <div className="bg-gray-700 border border-gray-600 rounded-lg p-6">
-          <h3 className="text-lg font-semibold text-white mb-4">Recent Transactions</h3>
+        <div className="bg-gray-50 border border-gray-200 rounded-lg p-6">
+          <h3 className="text-lg font-semibold text-gray-900 mb-4">Recent Transactions</h3>
           <div className="overflow-x-auto">
             <table className="w-full">
               <thead>
-                <tr className="border-b border-gray-600">
-                  <th className="text-left py-3 px-4 font-semibold text-gray-300">Reservation #</th>
-                  <th className="text-left py-3 px-4 font-semibold text-gray-300">Date</th>
-                  <th className="text-left py-3 px-4 font-semibold text-gray-300">Client</th>
-                  <th className="text-left py-3 px-4 font-semibold text-gray-300">Total</th>
-                  <th className="text-left py-3 px-4 font-semibold text-gray-300">Deposit</th>
-                  <th className="text-left py-3 px-4 font-semibold text-gray-300">Status</th>
+                <tr className="border-b border-gray-200">
+                  <th className="text-left py-3 px-4 font-semibold text-gray-900">Reservation #</th>
+                  <th className="text-left py-3 px-4 font-semibold text-gray-900">Date</th>
+                  <th className="text-left py-3 px-4 font-semibold text-gray-900">Client</th>
+                  <th className="text-left py-3 px-4 font-semibold text-gray-900">Total</th>
+                  <th className="text-left py-3 px-4 font-semibold text-gray-900">Deposit</th>
+                  <th className="text-left py-3 px-4 font-semibold text-gray-900">Status</th>
                 </tr>
               </thead>
               <tbody>
                 {filteredReservations.slice(0, 10).map((reservation) => (
-                  <tr key={reservation.id} className="border-b border-gray-600 hover:bg-gray-600/50">
-                    <td className="py-3 px-4 text-yellow-400 font-mono font-bold">
+                  <tr key={reservation.id} className="border-b border-gray-100 hover:bg-gray-50">
+                    <td className="py-3 px-4 text-red-600 font-mono font-bold">
                       #{reservation.reservationNumber}
                     </td>
-                    <td className="py-3 px-4 text-white">
+                    <td className="py-3 px-4 text-gray-900">
                       {new Date(reservation.appointmentDate).toLocaleDateString()}
                     </td>
-                    <td className="py-3 px-4 text-white">
+                    <td className="py-3 px-4 text-gray-900">
                       {reservation.firstName} {reservation.lastName}
                     </td>
-                    <td className="py-3 px-4 text-white font-semibold">
+                    <td className="py-3 px-4 text-gray-900 font-semibold">
                       €{reservation.totalPrice.toFixed(2)}
                     </td>
-                    <td className="py-3 px-4 text-white">
+                    <td className="py-3 px-4 text-gray-900">
                       €{reservation.depositPaid.toFixed(2)}
                     </td>
                     <td className="py-3 px-4">
                       <span className={`inline-flex items-center px-3 py-1 rounded-full text-sm font-medium ${
                         reservation.depositPaidStatus && reservation.restPaidStatus
-                          ? 'bg-green-900/30 text-green-400'
+                          ? 'bg-green-100 text-green-700'
                           : reservation.depositPaidStatus
-                          ? 'bg-blue-900/30 text-blue-400'
-                          : 'bg-yellow-900/30 text-yellow-400'
+                          ? 'bg-blue-100 text-blue-700'
+                          : 'bg-red-100 text-red-700'
                       }`}>
                         {reservation.depositPaidStatus && reservation.restPaidStatus 
                           ? 'Fully Paid' 

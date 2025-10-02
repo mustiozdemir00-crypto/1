@@ -48,8 +48,8 @@ export const Navigation: React.FC<NavigationProps> = ({ activeTab, setActiveTab 
   };
 
   return (
-    <div className="fixed left-0 top-0 h-full w-64 bg-gray-800 shadow-lg border-r border-orange-900">
-      <div className="p-6 border-b border-orange-900">
+    <div className="fixed left-0 top-0 h-full w-64 bg-white shadow-lg border-r border-gray-200">
+      <div className="p-6 border-b border-gray-200">
         <div className="flex items-center space-x-3">
           <div className="w-12 h-12 rounded-lg flex items-center justify-center">
             <img 
@@ -59,8 +59,8 @@ export const Navigation: React.FC<NavigationProps> = ({ activeTab, setActiveTab 
             />
           </div>
           <div>
-            <h2 className="text-xl font-bold text-white tracking-wide">Krampus Tattoo</h2>
-            <p className="text-sm text-white">Management Portal</p>
+            <h2 className="text-xl font-bold text-gray-900 tracking-wide">Krampus Tattoo</h2>
+            <p className="text-sm text-gray-600">Management Portal</p>
           </div>
         </div>
       </div>
@@ -77,8 +77,8 @@ export const Navigation: React.FC<NavigationProps> = ({ activeTab, setActiveTab 
                 onClick={() => setActiveTab(item.id)}
                 className={`w-full flex items-center space-x-3 px-4 py-3 rounded-lg transition-all ${
                   activeTab === item.id
-                    ? 'bg-yellow-600/30 text-yellow-400 border border-yellow-600'
-                    : 'text-white hover:bg-gray-700 hover:text-yellow-300'
+                    ? 'bg-red-50 text-red-600 border border-red-200'
+                    : 'text-gray-700 hover:bg-gray-50 hover:text-red-500'
                 }`}
               >
                 <Icon size={20} />
@@ -89,15 +89,15 @@ export const Navigation: React.FC<NavigationProps> = ({ activeTab, setActiveTab 
         </div>
       </nav>
 
-      <div className="absolute bottom-0 left-0 right-0 p-4 border-t border-orange-900">
+      <div className="absolute bottom-0 left-0 right-0 p-4 border-t border-gray-200">
         <div className="mb-4">
-          <p className="text-sm font-medium text-white">{user?.name}</p>
-          <p className="text-xs text-yellow-400 capitalize">{user?.role}</p>
+          <p className="text-sm font-medium text-gray-900">{user?.name}</p>
+          <p className="text-xs text-red-500 capitalize">{user?.role}</p>
         </div>
         <button
           onClick={logout}
           className="w-full flex items-center space-x-3 px-4 py-3 text-orange-400 hover:bg-orange-900/20 rounded-lg transition-colors"
-          className="w-full flex items-center space-x-3 px-4 py-3 text-yellow-400 hover:bg-yellow-600/20 rounded-lg transition-colors"
+          className="w-full flex items-center space-x-3 px-4 py-3 text-red-500 hover:bg-red-50 rounded-lg transition-colors"
         >
           <LogOut size={20} />
           <span>Sign Out</span>
