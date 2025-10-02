@@ -6,11 +6,13 @@ import { DataProvider } from './context/DataContext';
 
 function AppContent() {
   const { user } = useAuth();
-  
+
   return (
     <div className="min-h-screen bg-gray-200">
       {user ? (
-        <Dashboard />
+        <DataProvider>
+          <Dashboard />
+        </DataProvider>
       ) : (
         <Login />
       )}
@@ -21,9 +23,7 @@ function AppContent() {
 function App() {
   return (
     <AuthProvider>
-      <DataProvider>
-        <AppContent />
-      </DataProvider>
+      <AppContent />
     </AuthProvider>
   );
 }

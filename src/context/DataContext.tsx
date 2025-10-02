@@ -77,11 +77,33 @@ export const DataProvider: React.FC<{ children: React.ReactNode }> = ({ children
   useEffect(() => {
     const initializeData = async () => {
       setLoading(true);
-      await Promise.all([fetchReservations(), fetchStaff()]);
-      setLoading(false);
+      try {
+        // Fetch in parallel for better performance
+        await Promise.all([fetchReservations(), fetchStaff()]);
+      } catch (error) {
+        console.error('Error initializing data:', error);
+      } finally {
+        setLoading(false);
+      }
     };
 
     initializeData();
+
+    // Set up real-time subscriptions for better UX
+    const reservationSubscription = supabase
+      .channel('reservations_changes')
+      .on(
+        'postgres_changes',
+        { event: '*', schema: 'public', table: 'reservations' },
+        () => {
+          fetchReservations();
+        }
+      )
+      .subscribe();
+
+    return () => {
+      reservationSubscription.unsubscribe();
+    };
   }, []);
 
   const addReservation = async (reservation: Omit<Reservation, 'id' | 'createdAt'>) => {
@@ -90,11 +112,12 @@ export const DataProvider: React.FC<{ children: React.ReactNode }> = ({ children
         .from('reservations')
         .insert([reservation])
         .select()
-        .single();
+        .maybeSingle();
 
       if (error) throw error;
-
-      setReservations(prev => [data, ...prev]);
+      if (data) {
+        setReservations(prev => [data, ...prev]);
+      }
     } catch (error) {
       console.error('Error adding reservation:', error);
       throw error;
