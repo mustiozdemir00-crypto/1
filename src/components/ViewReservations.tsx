@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useData } from '../context/DataContext';
-import { Search, Filter, Eye, Edit, Trash2, Download, Calendar, CheckCircle, X, Save, Send } from 'lucide-react';
+import { Search, Filter, Eye, CreditCard as Edit, Trash2, Download, Calendar, CheckCircle, X, Save, Send } from 'lucide-react';
 import { ImageModal } from './ImageModal';
 import { ReservationModal } from './ReservationModal';
 import { generatePDF } from '../utils/pdfGenerator';
